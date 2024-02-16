@@ -1,6 +1,6 @@
 ---
 title: Demo
-emoji: :)
+emoji: \xF0\x9F\x98\x81
 colorFrom: purple
 colorTo: purple
 sdk: gradio
