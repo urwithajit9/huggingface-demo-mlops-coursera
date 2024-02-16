@@ -8,14 +8,14 @@ on:
   sync-to-hub:
   runs-on: ubuntu-latest
   steps:
-    -uses: actions/checkout@v2
+    - uses: actions/checkout@v2
      with:
        fetch-depth: 0
-      -name: Add remote
+      - name: Add remote
        env:
         HF: ${{secrets.HF}}
         run: git remote add space https://huggingface.co/spaces/kumarajit/mlops-coursera
-      -name: Push to hub
+      - name: Push to hub
        env:
           HF: ${{secrets.HF}}
           run: git push --force https://huggingface.co/spaces/kumarajit/mlops-coursera main
