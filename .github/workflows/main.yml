@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          lfs: true
+          fetch-depth: 0         
       - name: Add remote
         env:
           HF_TOKEN: ${{ secrets.HG }}
