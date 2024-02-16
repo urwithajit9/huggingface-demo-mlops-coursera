@@ -14,7 +14,11 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Add remote
+        env:
+          HF_TOKEN: ${{ secrets.HG }}
+        run: git remote add space https://kumarajit:$HF_TOKEN@huggingface.co/spaces/kumarajit/mlops-coursera-demo
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HG }}
-        run: git push https://kumarajit:$HF_TOKEN@huggingface.co/spaces/kumarajit/mlops-coursera-demo
+        run: git push https://kumarajit:$HF_TOKEN@huggingface.co/spaces/kumarajit/mlops-coursera-demo main
