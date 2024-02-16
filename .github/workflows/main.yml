@@ -1,24 +1,24 @@
 name: Sync to Hugging Face hub
-on: 
-  push: 
-     branches: [main]
+on:
+  push:
+    branches: [main]
+
+  # to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  jobs:
+jobs:
   sync-to-hub:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-     with:
-       fetch-depth: 0
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
       - name: Add remote
-       env:
-        HF: ${{secrets.HF}}
-        run: git remote add space https://huggingface.co/spaces/kumarajit/mlops-coursera
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git remote add space https://kumarajit:$HF_TOKEN@huggingface.co/spaces/kumarajit/mlops-coursera
       - name: Push to hub
-       env:
-          HF: ${{secrets.HF}}
-          run: git push --force https://huggingface.co/spaces/kumarajit/mlops-coursera main
-          
-        
-       
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push https://kumarajit:$HF_TOKEN@huggingface.co/spaces/kumarajit/mlops-coursera
