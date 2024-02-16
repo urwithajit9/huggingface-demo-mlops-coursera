@@ -1,4 +1,3 @@
-# huggingface-demo-mlops-coursera
 ---
 title: Demo
 emoji: :)
